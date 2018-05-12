@@ -1,17 +1,18 @@
 class SessionsController < ApplicationController
   # GET /login
   def new
+    #debugger
     #@session = Session.new
   end
   
   # POST /login 
   def create
-    @user = User.find_by(email: params[:session][:email].downcase)
-    if @user && @user.authenticate(params[:session][:password])
+    user = User.find_by(email: params[:session][:email].downcase)
+    if user && user.authenticate(params[:session][:password])
       # Success
-      log_in @user
-      params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
-      redirect_to @user
+      log_in user
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+      redirect_back_or user
     else
       # Failure
       flash.now[:danger] = 'Invalid email/password combination'
