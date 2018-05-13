@@ -37,3 +37,4 @@ gem 'therubyracer', platforms: :ruby
 gem 'bootstrap-sass','3.3.7'
 
 gem 'bcrypt'
+gem 'faker'
