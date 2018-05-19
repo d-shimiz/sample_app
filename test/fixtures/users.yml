@@ -17,3 +17,27 @@ two:
   name: user02
   email: guest@dshimizu.jp
   password_digest: <%= User.digest('password') %>
+
+three:
+  name: user03
+  email: user03@dshimizu.jp
+  password_digest: <%= User.digest('password') %>
+
+four:
+  name: user04
+  email: user04@dshimizu.jp
+  password_digest: <%= User.digest('password') %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  name: <%= "User #{n}" %>
+  email: <%= "user-#{n}@dshimizu.jp" %>
+  password_digest: <%= User.digest('password') %>
+<% end %>
+
+#<% 30.times do |n| %>
+#user_<%= n %>:
+#  name:  <%= "User #{n}" %>
+#  email: <%= "user-#{n}@example.com" %>
+#  password_digest: <%= User.digest('password') %>
+#<% end %>
