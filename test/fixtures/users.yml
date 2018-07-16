@@ -12,26 +12,36 @@ one:
   name: user01
   email: test@dshimizu.jp
   password_digest: <%= User.digest('password') %>
-  admin: ture
+  admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 two:
   name: user02
   email: guest@dshimizu.jp
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 three:
   name: user03
   email: user03@dshimizu.jp
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 four:
   name: user04
   email: user04@dshimizu.jp
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 <% 30.times do |n| %>
 user_<%= n %>:
   name: <%= "User #{n}" %>
   email: <%= "user-#{n}@dshimizu.jp" %>
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 <% end %>
