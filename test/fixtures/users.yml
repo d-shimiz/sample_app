@@ -45,3 +45,17 @@ user_<%= n %>:
   activated: true
   activated_at: <%= Time.zone.now %>
 <% end %>
+
+#chap11_3_non_activated:
+#  name: NonActivated
+#  email: non_activated@dshimizu.jp
+#  password_digest: <%= User.digest('password') %>
+#  activated: false
+#  activated_at: <%= Time.zone.now %>
+
+chap11_3_non_activated:
+  name: Non Activated
+  email: non_activated@dshimizu.jp
+  password_digest: <%= User.digest('password') %>
+  activated: false
+  activated_at: <%= Time.zone.now %>
