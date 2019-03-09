@@ -30,6 +30,7 @@ end
 
 group :production do
 #  gem 'pg'
+  gem 'fog'
 end
 
 gem 'therubyracer', platforms: :ruby
@@ -38,5 +39,7 @@ gem 'bootstrap-sass','3.3.7'
 
 gem 'bcrypt'
 gem 'faker'
+gem 'carrierwave'
+gem 'mini_magick'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
