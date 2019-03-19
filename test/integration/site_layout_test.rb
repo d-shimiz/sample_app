@@ -17,7 +17,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   end
 
   def setup
-    @user = users(:one)
+    @user = users(:test_user01)
   end
 
   test "layout links when logged in" do

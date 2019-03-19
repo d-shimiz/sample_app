@@ -6,7 +6,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
   # end
 
   def setup
-    @user = users(:one)
+    @user = users(:test_user01)
   end
 
   test "micropost interface" do
@@ -36,7 +36,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
       delete micropost_path(first_micropost)
     end
     # 違うユーザーのプロフィールにアクセス(削除リンクがないことを確認)
-    get user_path(users(:two))
+    get user_path(users(:test_user02))
     assert_select 'a', text: 'delete', count: 0
   end
 
@@ -45,7 +45,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     get root_path
     assert_match "#{@user.microposts.count } micropost", response.body
     # まだマイクロポストを投稿していないユーザー
-    other_user = users(:three)
+    other_user = users(:test_user03)
     log_in_as(other_user)
     get root_path
     assert_match "1 micropost", response.body
