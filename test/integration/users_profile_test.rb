@@ -8,7 +8,14 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
   include ApplicationHelper
 
   def setup
-    @user = users(:one)
+    @user = users(:test_user01)
+  end
+
+  test "count relationships" do
+    log_in_as(@user)
+    get root_path
+    assert_match @user.active_relationships.count.to_s, response.body
+    assert_match @user.passive_relationships.count.to_s, response.body
   end
 
   test "profile display" do
@@ -24,5 +31,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     end
     #assert_select 'div.pagination', count:2
     assert_select 'div.pagination', count:1
+    assert_match @user.active_relationships.count.to_s, response.body
+    assert_match @user.passive_relationships.count.to_s, response.body
   end
 end

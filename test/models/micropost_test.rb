@@ -6,7 +6,7 @@ class MicropostTest < ActiveSupport::TestCase
   # end
 
   def  setup
-    @user = users(:one)
+    @user = users(:test_user01)
     @micropost = @user.microposts.build(content: "Lorem ipsum")
   end
 
